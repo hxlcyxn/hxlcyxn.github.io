@@ -1,6 +1,9 @@
 ---
+import Footer from "../components/Footer.astro";
+import Navbar from "../components/Navbar.astro";
+
 export interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
@@ -8,53 +11,96 @@ const { title } = Astro.props;
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="stylesheet" href={} />
+    <title>☄️ | {title}</title>
+  </head>
+  <body>
+    <Navbar />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+    <style is:global>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        overflow: visible;
+      }
+      img,
+      picture,
+      svg {
+        max-width: 100%;
+        display: block;
+      }
+
+      :root {
+        --bg: #0b0e14;
+        --fg: #fcfcfc;
+        --accent-orange: #ffaa33;
+        --accent-blue: #39bae6;
+        --blue-dimmed: #478ACC;
+        --font-4xl: 4.209rem;
+        --font-3xl: 3.157rem;
+        --font-2xl: 2.369rem;
+        --font-xl: 1.777rem;
+        --font-l: 1.333rem;
+        --font-m: 24px;
+        --font-s: 0.75rem;
+      }
+
+      body {
+        font-family: "Roboto", sans-serif;
+        font-weight: 400;
+        font-size: var(--font-m);
+        background-color: var(--bg);
+        color: var(--fg);
+      }
+
+      h1 {
+        font-size: var(--font-4xl);
+      }
+
+      h2 {
+        font-size: var(--font-3xl);
+      }
+
+      h3 {
+        font-size: var(--font-2xl);
+      }
+
+      h4 {
+        font-size: var(--font-xl);
+      }
+      h5 {
+        font-size: var(--font-l);
+      }
+
+      small {
+        font-size: var(--font-s);
+      }
+
+      main {
+        display: flex;
+        flex-direction: column;
+        gap: 64px;
+        width: 100%;
+        max-width: 1500px;
+        margin: auto;
+        padding: 64px;
+      }
+
+      a {
+        color: var(--blue-dimmed);
+      }
+    </style>
+  </body>
 </html>
-<style>
-	:root {
-		--font-size-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
-		--font-size-lg: clamp(1.2rem, 0.7vw + 1.2rem, 1.5rem);
-		--font-size-xl: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
-
-		--color-text: hsl(12, 5%, 4%);
-		--color-bg: hsl(10, 21%, 95%);
-		--color-border: hsl(17, 24%, 90%);
-	}
-
-	html {
-		font-family: system-ui, sans-serif;
-		font-size: var(--font-size-base);
-		color: var(--color-text);
-		background-color: var(--color-bg);
-	}
-
-	body {
-		margin: 0;
-	}
-
-
-</style>
-
-<style is:global>
-	h1 {
-		font-size: var(--font-size-xl);
-	}
-
-	h2 {
-		font-size: var(--font-size-lg);
-	}
-
-	code {
-		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-			Bitstream Vera Sans Mono, Courier New, monospace;
-	}
-</style>

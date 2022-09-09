@@ -1,0 +1,70 @@
+---
+import avatar from "../assets/sui_eye.jpg";
+---
+
+<div class="me">
+  <img alt="halcyon" src={avatar} class="avatar"/>
+  <div class="me-about">
+    <h3>halcyon</h3>
+    <div class="me-text">
+      <p>mediocre at everything i like:</p>
+      <ul class="me-things">
+        <li class="accent-orange">programming</li>
+        <li class="accent-orange">computer tech</li>
+        <li class="accent-blue">games</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<style>
+  div {
+    display: flex;
+    justify-content: center;
+  }
+
+  h3 {
+    font-weight: 400;
+  }
+  ul {
+    list-style-type: none;
+  }
+  .me {
+    align-items: center;
+    gap: 64px;
+    padding: 64px 0 32px 0;
+    overflow: visible;
+  }
+  .avatar {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    box-sizing: border-box;
+    border: 1px solid rgba(255,170,51, 0.2));
+    filter: drop-shadow(0px 0px 64px rgba(255,170,51,0.5));
+    overflow: visible
+  }
+
+  .me-about {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .me-text {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  .me-things {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .accent-orange {
+    color: var(--accent-orange);
+  }
+  .accent-blue {
+    color: var(--accent-blue);
+  }
+</style>

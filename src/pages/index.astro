@@ -1,96 +1,70 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Divider from "../components/Divider.astro";
+import Me from "../components/Me.astro";
+import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Welcome to Astro.">
-	<main>
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
-		<p class="instructions">
-			Check out the <code>src/pages</code> directory to get started.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-		</p>
-		<ul role="list" class="link-card-grid">
-			<Card
-				href="https://docs.astro.build/"
-				title="Documentation"
-				body="Learn how Astro works and explore the official API docs."
-			/>
-			<Card
-				href="https://astro.build/integrations/"
-				title="Integrations"
-				body="Supercharge your project with new frameworks and libraries."
-			/>
-			<Card
-				href="https://astro.build/themes/"
-				title="Themes"
-				body="Explore a galaxy of community-built starter themes."
-			/>
-			<Card
-				href="https://astro.build/chat/"
-				title="Chat"
-				body="Come say hi to our amazing Discord community. ❤️"
-			/>
-		</ul>
-	</main>
+<Layout title="Welcome to my Homepage!">
+  <Me />
+  <div class="text">
+    <div class="text-para">
+      <h3>Info</h3>
+      <div>
+        <p>
+          Hi there! I'm halcyon, otherwise known as hxlcyxn or similar if the name
+          is already taken. Most of my space time is dedicated to programming,
+          gaming and playing volleyball.
+        </p>
+        <p>Currently I'm a new student at the TU Dresden!</p>
+      </div>
+    </div>
+    <div class="text-para">
+      <h3>Projects</h3>
+      <p>
+        Mostly little things that support my daily life in one way or another,
+        often built with technology I'm inexperienced with, for the
+        <b>*learning experience*</b>. Everything is over at my
+        <a href="https://github.com/hxlcyxn">github</a>.
+      </p>
+      <ul class="projects-list">
+        <li class="project">
+          <h5 class="project-title">osucollectrs</h5>
+          <Divider text="-" />
+          <p class="project-description">
+            cli web scraper built in rust for
+            <a href="https://osucollector.com/">osu!Colletor!</a>
+            to download osu! beatmap collections
+          </p>
+        </li>
+      </ul>
+    </div>
+  </div>
 </Layout>
 
 <style>
-	:root {
-		--astro-gradient: linear-gradient(0deg, #4f39fa, #da62c4);
-	}
+.text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
 
-	h1 {
-		margin: 2rem 0;
-	}
+.text-para {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+}
 
-	main {
-		margin: auto;
-		padding: 1em;
-		max-width: 60ch;
-	}
+ul {
+  list-style-type: none;
+}
 
-	.text-gradient {
-		font-weight: 900;
-		background-image: var(--astro-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 100% 200%;
-		background-position-y: 100%;
-		border-radius: 0.4rem;
-		animation: pulse 4s ease-in-out infinite;
-	}
-
-	@keyframes pulse {
-		0%,
-		100% {
-			background-position-y: 0%;
-		}
-		50% {
-			background-position-y: 80%;
-		}
-	}
-
-	.instructions {
-		line-height: 1.6;
-		margin: 1rem 0;
-		background: #4f39fa;
-		padding: 1rem;
-		border-radius: 0.4rem;
-		color: var(--color-bg);
-	}
-
-	.instructions code {
-		font-size: 0.875em;
-		border: 0.1em solid var(--color-border);
-		border-radius: 4px;
-		padding: 0.15em 0.25em;
-	}
-
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 1rem;
-		padding: 0;
-	}
+.project {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
 </style>

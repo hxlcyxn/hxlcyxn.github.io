@@ -15,11 +15,55 @@
 	<meta property="og:url" content="https://eisvogel.moe">
 
 	<link rel="stylesheet" href="style.css">
+
+	<script>
+		const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-#%$&";
+		const charIterations = 3;
+
+		function hackerPog(element, n) {
+			element.innerText = element.innerText
+			.split("")
+			.map((c, i) => {
+					if (i < n/charIterations) {
+						return element.dataset.value[i];
+					}
+					return chars[Math.floor(Math.random() * chars.length)] })
+			.join("");
+		}
+
+		function randomGlitch(element) {
+			const n = Math.floor(Math.random() * element.innerText.length);
+			element.innerText = element.innerText
+			.split("")
+			.map((c, i) => {
+				if (i == n) {
+					return chars[Math.floor(Math.random() * chars.length)];
+				}
+				return c;
+			})
+			.join("");
+		}
+
+		window.onload = () => {
+			console.log("window onload");
+			const element = document.querySelector("h1");
+			let n = 0;
+			let initialGlitchInterval, randomGlitchInterval;
+			
+			initialGlitchInterval = setInterval(() => {
+				hackerPog(element, n);
+				n++;
+				if (n/charIterations > element.dataset.value.length) {
+					clearInterval(initialGlitchInterval);
+				}
+			}, 20);
+		};
+	</script>
 </head>
 
 <body>
 	<div class="center">
-		<h1>halcyon</h1>
+		<h1 data-value="halcyon.">halcyon.</h1>
 		<ul>
 			<li><div><span>uni.</span><span>@</span></div><span>computer science @ TU Dresden</span></li>
 			<li><div><span>wrk.</span><span>@</span></div><span>Saxony Media Solutions GmbH</span></li>

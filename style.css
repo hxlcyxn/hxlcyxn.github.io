@@ -24,41 +24,34 @@ html, body {
   font-family: monospace;
   font-size: large;
 }
+
+h1 {
+  margin: 0;
+}
+
+hr {
+  border: 0;
+  height: 2px;
+  background: var(--bg2);
+  background-image: linear-gradient(to right, transparent, var(--border) 20%, var(--border) 80%, transparent);
+}
+
+pre {
+  margin: 0;
+}
+
 .center {
   display: block;
-  background-color: var(--bg2);
   margin: 0;
   padding: 1em;
-  border: 2px solid var(--border);
-  border-image: radial-gradient(transparent 90%, var(--border)) 1;
   position: absolute;
   top: 50%;
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  width: clamp(4ch, calc(100% - 4em), 50ch);
+
+  background-color: var(--bg2);
+  border: 2px solid var(--border);
+  border-image: radial-gradient(transparent 90%, var(--border)) 1;
 }
 
-ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-li {
-  display: flex;
-  justify-content: space-between;
-  gap: 1em;
-  white-space: nowrap;
-}
-
-li > div {
-  display: flex;
-  justify-content: space-between;
-  width: 6ch;
-}
-
-a {
-  color: var(--fg);
-  text-decoration: underline;
-}
